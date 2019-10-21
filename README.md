@@ -1,10 +1,14 @@
 # vehicle_manager
 北京卫戍区派车管理系统软件项目
 介绍
-  北京卫戍区外包派车管理软件项目，由我负责，其他的看介绍
+  北京卫戍区外包派车管理软件项目，由我负责，总开发人数3人，项目虽然没用到什么特别高端的技术，从中收获了很多项目开发经验，项目从需求分析-详细设计-编码开发-测试-甲方演示到最后到部署上线
+  现场部署：因不能连接外网，且只在一台电脑操作，因此是本地部署，然后与门卫的电脑连接内网控制道闸与收费。
+  业务功能：主要是值班员派车（公车），对车辆能更好对管理车辆有效管理；用车人到值班室填写派车单，然后由值班员录入系统，车辆可以通过道闸出入场，简单来说就是这么个功能。登陆账号两种权限：管理员和操作员，管理员不能派车操作。
 
 软件架构
-  技术：Springboot、mysql、Springmvc、mybatis plus
+  技术
+    - 后端：Springboot、mysql、Springmvc、mybatis plus
+    - 前端：layui、bootstrap、ajax
 
 安装教程
   下载vehicle_manager_2.0.zip项目（mac压缩的里面会有一个_MACOSX类似文件夹 将其删掉即可）
@@ -12,4 +16,4 @@
   导入数据库脚本和更改数据库配置
   打包jar 部署到服务器上即可使用 部署很简单就不介绍如何部署了
 项目介绍
-  见：https://gitee.com/lzhjava/java
+  见：https://gitee.com/lzhjava/java & https://blog.csdn.net/qq_30398499/article/details/100888843
