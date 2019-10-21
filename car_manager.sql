@@ -1,443 +1,299 @@
 /*
- Navicat MySQL Data Transfer
+SQLyog Ultimate v12.09 (64 bit)
+MySQL - 5.7.26-log : Database - car_manager
+*********************************************************************
+*/
 
- Source Server         : 39.100.131.79
- Source Server Type    : MySQL
- Source Server Version : 80017
- Source Host           : 39.100.131.79:3306
- Source Schema         : car_manager
+/*!40101 SET NAMES utf8 */;
 
- Target Server Type    : MySQL
- Target Server Version : 80017
- File Encoding         : 65001
+/*!40101 SET SQL_MODE=''*/;
 
- Date: 27/09/2019 14:16:27
-*/
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`car_manager` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+USE `car_manager`;
 
--- ----------------------------
--- Table structure for t_car
--- ----------------------------
+/*Table structure for table `t_car` */
+
 DROP TABLE IF EXISTS `t_car`;
+
 CREATE TABLE `t_car` (
-  `t_car_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆ID主键（uuid）',
-  `t_car_no` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '车牌号',
-  `t_car_driver_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `t_car_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '车辆类型',
+  `t_car_id` varchar(255) NOT NULL COMMENT '车辆ID主键（uuid）',
+  `t_car_no` varchar(255) DEFAULT NULL COMMENT '车牌号',
+  `t_car_driver_id` varchar(255) DEFAULT NULL,
+  `t_car_type` varchar(255) DEFAULT NULL COMMENT '车辆类型',
   `t_status` int(9) DEFAULT NULL COMMENT '车辆状态 0：执勤 1：封存 2：待命 3：保养 4：在修 5：待修 6：带料 7：待报废 8：保养',
   `t_create_date` datetime DEFAULT NULL COMMENT '新增日期',
   `t_data_status` int(2) DEFAULT NULL COMMENT '数据状态',
-  `t_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
+  `t_remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`t_car_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_car
--- ----------------------------
-BEGIN;
-INSERT INTO `t_car` VALUES ('1177463531650060288', 'LW91105', '1177463531650060289', '3', 3, '2019-09-27 14:02:37', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177463613971664896', 'LW91106', '1177463613971664897', '3', 3, '2019-09-27 14:02:56', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177463720364380160', 'LW91107', '1177463720364380161', '6', 3, '2019-09-27 14:03:22', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177463850350055424', 'LW91108', '1177463850350055425', '3', 3, '2019-09-27 14:03:53', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177463974279155712', 'LW91109', '1177463974279155713', '3', 3, '2019-09-27 14:04:22', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177464165442949120', 'LW91110', '1177464165442949121', '6', 3, '2019-09-27 14:05:08', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177464351275782144', 'LW91111', '1177464351275782145', '1', 3, '2019-09-27 14:05:52', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177464601830920192', 'LW91112', '1177464601830920193', '5', 3, '2019-09-27 14:06:52', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177464849051586560', 'LW91113', '1177464849051586561', '2', 3, '2019-09-27 14:07:51', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177465033697431552', 'LW91114', '1177465033697431553', '0', 3, '2019-09-27 14:08:35', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177465197128486912', 'LW91115', '1177463720364380161', '3', 3, '2019-09-27 14:09:14', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177465522983964672', 'LW91116', '1177464601830920193', '3', 3, '2019-09-27 14:10:32', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177465813330464768', 'LW91117', '1177465813330464769', '3', 3, '2019-09-27 14:11:41', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177465930590621696', 'LW91118', '1177464849051586561', '8', 3, '2019-09-27 14:12:09', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177466067329126400', 'LW91119', '1177466067329126401', '6', 3, '2019-09-27 14:12:41', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177466286250823680', 'LW91120', '1177465033697431553', '6', 3, '2019-09-27 14:13:34', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177466411253665792', 'LW91163', '1177465813330464769', '7', 3, '2019-09-27 14:14:03', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177466557085421568', 'LW93163', '1177466557085421569', '9', 3, '2019-09-27 14:14:38', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177466667060072448', 'LW99113', '1177466067329126401', '10', 3, '2019-09-27 14:15:04', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177466756335833088', 'LW99112', '1177463720364380161', '11', 3, '2019-09-27 14:15:26', 0, NULL);
-INSERT INTO `t_car` VALUES ('1177466864641150976', 'LW99114', '1177464351275782145', '12', 3, '2019-09-27 14:15:51', 0, NULL);
-COMMIT;
+/*Data for the table `t_car` */
 
--- ----------------------------
--- Table structure for t_car_status
--- ----------------------------
+insert  into `t_car`(`t_car_id`,`t_car_no`,`t_car_driver_id`,`t_car_type`,`t_status`,`t_create_date`,`t_data_status`,`t_remark`) values ('117746353165006','LW91105','1177464351275782145','3',3,'2019-09-27 17:44:30',0,''),('117746361397166','LW91106','1177463613971664897','3',3,'2019-09-27 14:02:56',0,NULL),('117746372036438','LW91107','1179775663671844864','6',3,'2019-09-27 14:03:22',0,NULL),('117746385035005','LW91108','1177463850350055425','3',3,'2019-09-27 14:03:53',0,NULL),('117746397427915','LW91109','1178195336167890944','3',3,'2019-09-27 14:04:22',0,NULL),('117746416544294','LW91110','1177464165442949121','6',1,'2019-09-27 14:05:08',0,NULL),('117746435127578','LW91111','1177464351275782145','1',3,'2019-09-27 14:05:52',0,NULL),('117746460183092','LW91112','1177590990006902784','5',3,'2019-09-27 17:44:12',0,''),('117746484905158','LW91113','1177464351275782145','2',3,'2019-09-27 14:07:51',0,NULL),('117746503369743','LW91114','1177466557085421569','0',3,'2019-09-27 17:43:58',0,''),('117746519712848','LW91115','1177464849051586561','3',3,'2019-09-27 14:09:14',0,NULL),('117746552298396','LW91116','1177519146306367488','3',3,'2019-09-27 17:43:36',0,''),('117746581333046','LW91117','1177463850350055425','3',3,'2019-09-27 14:11:41',0,NULL),('117746593059062','LW91118','1177464849051586561','8',3,'2019-09-27 14:12:09',0,NULL),('117746606732912','LW91119','1181928472218497024','6',3,'2019-09-27 14:12:41',0,NULL),('117746628625082','LW91120','1177518973337464832','6',3,'2019-09-27 17:42:55',0,''),('117746641125366','LW91663','1177466067329126401','7',2,'2019-09-27 17:43:13',0,''),('117746655708542','LW93163','1177466557085421569','9',3,'2019-09-27 14:14:38',0,NULL),('117746666706007','LW99113','1182825686202548224','10',3,'2019-09-27 14:15:04',0,NULL),('117746675633583','LW99112','1177463720364380161','11',3,'2019-09-27 14:15:26',0,NULL),('117746686464115','LW99114','1177464351275782145','12',3,'2019-09-27 14:15:51',0,NULL),('117751966272585','LW91101','1177519662725853185','6',3,'2019-09-27 17:45:40',0,NULL);
+
+/*Table structure for table `t_car_status` */
+
 DROP TABLE IF EXISTS `t_car_status`;
+
 CREATE TABLE `t_car_status` (
-  `car_status_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆状态id',
-  `status_num` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态码',
-  `status_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态名称',
+  `car_status_id` varchar(255) NOT NULL COMMENT '车辆状态id',
+  `status_num` varchar(255) NOT NULL COMMENT '状态码',
+  `status_name` varchar(255) NOT NULL COMMENT '状态名称',
   PRIMARY KEY (`car_status_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_car_status
--- ----------------------------
-BEGIN;
-INSERT INTO `t_car_status` VALUES ('1', '1', '在勤');
-INSERT INTO `t_car_status` VALUES ('2', '2', '待勤');
-INSERT INTO `t_car_status` VALUES ('3', '3', '待命');
-COMMIT;
+/*Data for the table `t_car_status` */
 
--- ----------------------------
--- Table structure for t_car_type
--- ----------------------------
+insert  into `t_car_status`(`car_status_id`,`status_num`,`status_name`) values ('1','1','在勤'),('2','2','待勤'),('3','3','待命');
+
+/*Table structure for table `t_car_type` */
+
 DROP TABLE IF EXISTS `t_car_type`;
+
 CREATE TABLE `t_car_type` (
-  `car_type_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆类型id',
-  `type_num` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆类型编码',
-  `type_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车辆类型名称',
+  `car_type_id` varchar(255) NOT NULL COMMENT '车辆类型id',
+  `type_num` varchar(255) NOT NULL COMMENT '车辆类型编码',
+  `type_name` varchar(255) NOT NULL COMMENT '车辆类型名称',
   PRIMARY KEY (`car_type_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_car_type
--- ----------------------------
-BEGIN;
-INSERT INTO `t_car_type` VALUES ('1', '0', '金杯救护');
-INSERT INTO `t_car_type` VALUES ('10', '9', '本田雅阁');
-INSERT INTO `t_car_type` VALUES ('11', '10', '江淮客货');
-INSERT INTO `t_car_type` VALUES ('12', '11', '东风');
-INSERT INTO `t_car_type` VALUES ('13', '12', '衡山大客车');
-INSERT INTO `t_car_type` VALUES ('2', '1', '大众帕萨特');
-INSERT INTO `t_car_type` VALUES ('3', '2', '全顺');
-INSERT INTO `t_car_type` VALUES ('4', '3', '红旗H7');
-INSERT INTO `t_car_type` VALUES ('5', '4', '大众');
-INSERT INTO `t_car_type` VALUES ('6', '5', '金杯');
-INSERT INTO `t_car_type` VALUES ('7', '6', '红旗B70');
-INSERT INTO `t_car_type` VALUES ('8', '7', '红旗B90');
-INSERT INTO `t_car_type` VALUES ('9', '8', '大众迈腾');
-COMMIT;
+/*Data for the table `t_car_type` */
 
--- ----------------------------
--- Table structure for t_destination
--- ----------------------------
+insert  into `t_car_type`(`car_type_id`,`type_num`,`type_name`) values ('1','0','金杯救护'),('10','9','本田雅阁'),('11','10','江淮客货'),('12','11','东风'),('13','12','衡山大客车'),('2','1','大众帕萨特'),('3','2','全顺'),('4','3','红旗H7'),('5','4','大众'),('6','5','金杯'),('7','6','红旗B70'),('8','7','红旗B90'),('9','8','大众迈腾');
+
+/*Table structure for table `t_destination` */
+
 DROP TABLE IF EXISTS `t_destination`;
+
 CREATE TABLE `t_destination` (
-  `t_des_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `t_des_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `t_des_id` varchar(255) NOT NULL,
+  `t_des_name` varchar(255) DEFAULT NULL,
   `t_des_time` datetime DEFAULT NULL,
+  `t_data_status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`t_des_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_destination
--- ----------------------------
-BEGIN;
-INSERT INTO `t_destination` VALUES ('102642935721984', '京城', '2019-08-24 11:24:51');
-INSERT INTO `t_destination` VALUES ('610538534436864', '明孝陵', '2019-08-25 21:03:03');
-INSERT INTO `t_destination` VALUES ('610574374764544', '十三陵', '2019-08-25 21:03:12');
-INSERT INTO `t_destination` VALUES ('724948895584256', '33333', '2019-09-25 13:07:45');
-COMMIT;
+/*Data for the table `t_destination` */
 
--- ----------------------------
--- Table structure for t_driver
--- ----------------------------
+insert  into `t_destination`(`t_des_id`,`t_des_name`,`t_des_time`,`t_data_status`) values ('092165262667777','东一所','2019-10-10 08:35:09',0),('196419298127872','西站','2019-10-10 15:29:25',0),('196898782572545','四季青','2019-10-10 15:31:19',0),('206762100858881','北辰桥','2019-10-07 21:56:53',0),('290209346195456','八宝山','2019-10-10 21:42:06',0),('315632229199872','北京站','2019-09-29 22:28:33',0),('315693147271168','北京南站','2019-09-29 22:28:48',0),('315780489457664','第一综合保障中心','2019-09-29 22:29:09',0),('315810487119872','驻京局','2019-09-29 22:29:16',0),('315868670504960','首都机场','2019-09-29 22:29:30',0),('315921015418880','地安门加油站','2019-09-29 22:29:42',0),('315962853601280','黄寺加油站','2019-09-29 22:29:52',0),('316052347465728','外交部街','2019-09-29 22:30:14',0),('470057556029441','总院','2019-09-30 08:42:11',0),('505101038800896','石景山','2019-10-11 11:56:01',0),('508817778192384','总医院','2019-09-27 17:02:34',0),('545103598854144','T3航站楼','2019-10-03 07:54:02',0),('545547230388224','T2机场','2019-10-03 07:55:48',0),('563315776712704','和平里','2019-10-08 21:33:42',0),('564305913475072','建国门医院','2019-10-08 21:37:38',0),('653298794004480','老干部活动中心','2019-10-11 21:44:54',0),('654009124552705','陆军','2019-10-11 21:47:43',0),('654920253210624','八一学院','2019-10-11 21:51:20',0),('668259651592192','空军大院','2019-09-30 21:49:46',0),('755560240934912','东四','2019-10-09 10:17:36',0),('760066919919616','大钟寺','2019-10-09 10:35:31',0),('775663386632192','南口','2019-10-03 23:10:12',0),('825685950889985','外交部街院','2019-10-12 09:09:54',0),('831086875930624','四惠','2019-10-09 15:17:43',0),('860390461046784','和平里北街','2019-10-12 11:27:48',0),('872825012125696','朝阳三所','2019-10-12 12:17:13',0),('911026890301440','西客站','2019-09-28 19:40:48',0),('915578145906688','长安街','2019-10-01 14:12:32',0),('929109341663233','东郊','2019-10-09 21:47:14',0),('929410824040449','新华书店','2019-10-09 21:48:25',0),('929744229265408','学院路','2019-10-09 21:49:45',0),('932148736208896','中心','2019-10-12 16:12:57',0),('949141036118016','钓鱼台','2019-10-12 17:20:28',0);
+
+/*Table structure for table `t_driver` */
+
 DROP TABLE IF EXISTS `t_driver`;
+
 CREATE TABLE `t_driver` (
-  `t_driver_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '驾驶员id 主键（uuid)',
-  `t_drive_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '驾驶员姓名',
-  `t_department` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '所属部门',
-  `t_tel` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '联系电话',
-  `t_card_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '身份证号',
+  `t_driver_id` varchar(255) NOT NULL COMMENT '驾驶员id 主键（uuid)',
+  `t_drive_name` varchar(255) DEFAULT NULL COMMENT '驾驶员姓名',
+  `t_department` varchar(255) DEFAULT NULL COMMENT '所属部门',
+  `t_tel` varchar(255) DEFAULT NULL COMMENT '联系电话',
+  `t_card_id` varchar(255) DEFAULT NULL COMMENT '身份证号',
   `t_status` int(3) DEFAULT NULL COMMENT '驾驶员状态 1：空闲 2：任务中 3：休息中',
   `t_data_status` int(2) DEFAULT NULL COMMENT '数据状态',
-  `t_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
+  `t_remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`t_driver_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_driver
--- ----------------------------
-BEGIN;
-INSERT INTO `t_driver` VALUES ('1177463531650060289', '闫磊', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177463613971664897', '杨茂富', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177463720364380161', '田健', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177463850350055425', '孔令超', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177463974279155713', '陈秋华', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177464165442949121', '王财源', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177464351275782145', '连潇', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177464601830920193', '刘观川', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177464849051586561', '王广扩', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177465033697431553', '范可磊', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177465813330464769', '王威', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177466067329126401', '刘鹏', NULL, NULL, NULL, NULL, 0, NULL);
-INSERT INTO `t_driver` VALUES ('1177466557085421569', '王杰', NULL, NULL, NULL, NULL, 0, NULL);
-COMMIT;
+/*Data for the table `t_driver` */
 
--- ----------------------------
--- Table structure for t_driver_department
--- ----------------------------
+insert  into `t_driver`(`t_driver_id`,`t_drive_name`,`t_department`,`t_tel`,`t_card_id`,`t_status`,`t_data_status`,`t_remark`) values ('1177463531650060289','闫磊',NULL,NULL,NULL,NULL,0,NULL),('1177463613971664897','杨茂富',NULL,NULL,NULL,NULL,0,NULL),('1177463720364380161','田健',NULL,NULL,NULL,NULL,0,NULL),('1177463850350055425','孔令超',NULL,NULL,NULL,NULL,0,NULL),('1177463974279155713','陈秋华',NULL,NULL,NULL,NULL,0,NULL),('1177464165442949121','王财源',NULL,NULL,NULL,NULL,0,NULL),('1177464351275782145','连潇',NULL,NULL,NULL,NULL,0,NULL),('1177464601830920193','刘观川',NULL,NULL,NULL,NULL,0,NULL),('1177464849051586561','王广扩',NULL,NULL,NULL,NULL,0,NULL),('1177465033697431553','范可磊',NULL,NULL,NULL,NULL,0,NULL),('1177465813330464769','王威',NULL,NULL,NULL,NULL,0,NULL),('1177466067329126401','刘鹏',NULL,NULL,NULL,NULL,0,NULL),('1177466557085421569','王杰',NULL,NULL,NULL,NULL,0,NULL),('1177518973337464832','范阿鑫',NULL,NULL,NULL,NULL,0,NULL),('1177519146306367488','刘观州',NULL,NULL,NULL,NULL,0,NULL),('1177519370894569472','闫鑫',NULL,NULL,NULL,NULL,0,NULL),('1177519662725853185','王稚翔',NULL,NULL,NULL,NULL,0,NULL),('1177590990006902784','许强',NULL,NULL,NULL,NULL,0,NULL),('1178195336167890944','陈秋峰',NULL,NULL,NULL,NULL,0,NULL),('1178239399017545729','林郑月娥',NULL,NULL,NULL,NULL,0,NULL),('1178241263897378817','妥妥帖木儿',NULL,NULL,NULL,NULL,0,NULL),('1178244828300791809','3',NULL,NULL,NULL,NULL,0,NULL),('1179775663671844864','田键',NULL,NULL,NULL,NULL,0,NULL),('1180637021305020416','贾乡',NULL,NULL,NULL,NULL,0,NULL),('1181928472218497024','刘大伟',NULL,NULL,NULL,NULL,0,NULL),('1181929411130224640','崔明琨',NULL,NULL,NULL,NULL,0,NULL),('1182127510981242880','朱建军',NULL,NULL,NULL,NULL,0,NULL),('1182825686202548224','孙玉宝',NULL,NULL,NULL,NULL,0,NULL);
+
+/*Table structure for table `t_driver_department` */
+
 DROP TABLE IF EXISTS `t_driver_department`;
+
 CREATE TABLE `t_driver_department` (
-  `department_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `department_num` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `department_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `department_id` varchar(255) NOT NULL,
+  `department_num` varchar(255) NOT NULL,
+  `department_name` varchar(255) NOT NULL,
   `department_date` datetime DEFAULT NULL,
   PRIMARY KEY (`department_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_driver_department
--- ----------------------------
-BEGIN;
-INSERT INTO `t_driver_department` VALUES ('1', '0', '技术部', '2019-08-30 13:19:51');
-INSERT INTO `t_driver_department` VALUES ('1168347166960156672', '1168347166960156673', '科技部', '2019-09-02 10:17:26');
-INSERT INTO `t_driver_department` VALUES ('2', '1', '人事部', '2019-08-29 13:19:58');
-INSERT INTO `t_driver_department` VALUES ('3', '2', '财务部', '2019-08-30 13:39:45');
-INSERT INTO `t_driver_department` VALUES ('4', '3', '后勤部', '2019-08-30 13:39:50');
-INSERT INTO `t_driver_department` VALUES ('5', '4', '销售部', '2019-08-30 13:39:54');
-COMMIT;
+/*Data for the table `t_driver_department` */
 
--- ----------------------------
--- Table structure for t_driver_status
--- ----------------------------
+insert  into `t_driver_department`(`department_id`,`department_num`,`department_name`,`department_date`) values ('1','1','暂无部门',NULL),('1177516601102036992','1177516601106231296','车管','2019-09-27 17:33:30'),('1178312099970920448','1178312099970920449','干休所','2019-09-29 22:14:31'),('1178312151883821056','1178312151883821057','卫生所','2019-09-29 22:14:44'),('1178312195341004800','1178312195341004801','政工','2019-09-29 22:14:54'),('1178312221337300992','1178312221337300993','营房','2019-09-29 22:15:00'),('1178312248621248512','1178312248621248513','财务','2019-09-29 22:15:07'),('1178312276194603008','1178312276194603009','军需','2019-09-29 22:15:13'),('1178312331903348736','1178312331903348737','行管','2019-09-29 22:15:27'),('1178312380116873216','1178312380121067520','士兵队','2019-09-29 22:15:38'),('1178312424840736768','1178312424840736769','休干专车','2019-09-29 22:15:49'),('1178312471158435840','1178312471158435841','休干机动车','2019-09-29 22:16:00'),('1178312591589486592','1178312591589486593','退休干部机动车','2019-09-29 22:16:28');
+
+/*Table structure for table `t_driver_status` */
+
 DROP TABLE IF EXISTS `t_driver_status`;
+
 CREATE TABLE `t_driver_status` (
-  `driver_status_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '人员状态id',
-  `status_num` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态码',
-  `status_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态名称',
+  `driver_status_id` varchar(255) NOT NULL COMMENT '人员状态id',
+  `status_num` varchar(255) NOT NULL COMMENT '状态码',
+  `status_name` varchar(255) NOT NULL COMMENT '状态名称',
   PRIMARY KEY (`driver_status_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_driver_status
--- ----------------------------
-BEGIN;
-INSERT INTO `t_driver_status` VALUES ('1', '1', '空闲');
-INSERT INTO `t_driver_status` VALUES ('2', '2', '任务中');
-INSERT INTO `t_driver_status` VALUES ('3', '3', '休息中');
-COMMIT;
+/*Data for the table `t_driver_status` */
 
--- ----------------------------
--- Table structure for t_driver_use_man
--- ----------------------------
+insert  into `t_driver_status`(`driver_status_id`,`status_num`,`status_name`) values ('1','1','空闲'),('2','2','任务中'),('3','3','休息中');
+
+/*Table structure for table `t_driver_use_man` */
+
 DROP TABLE IF EXISTS `t_driver_use_man`;
+
 CREATE TABLE `t_driver_use_man` (
-  `t_driver_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用车人id 主键（uuid)',
-  `t_use_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '用车人姓名',
-  `t_department` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '所属部门',
-  `t_tel` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '联系电话',
-  `t_card_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '身份证号',
+  `t_driver_id` varchar(255) NOT NULL COMMENT '用车人id 主键（uuid)',
+  `t_use_name` varchar(255) DEFAULT NULL COMMENT '用车人姓名',
+  `t_department` varchar(255) DEFAULT NULL COMMENT '所属部门',
+  `t_tel` varchar(255) DEFAULT NULL COMMENT '联系电话',
+  `t_card_id` varchar(255) DEFAULT NULL COMMENT '身份证号',
   `t_status` int(3) DEFAULT NULL COMMENT '驾驶员状态 0：空闲 1：任务中 2：休息中',
   `t_data_status` int(2) DEFAULT NULL COMMENT '数据状态',
-  `t_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
+  `t_remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`t_driver_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_driver_use_man
--- ----------------------------
-BEGIN;
-INSERT INTO `t_driver_use_man` VALUES ('1', '赵构', '1', '13477098836', '4209811201201', NULL, 1, '大宋最后两代君主');
-INSERT INTO `t_driver_use_man` VALUES ('105276513456128', '玄烨', '1', '1', '1', NULL, 0, '满清入关第二位君主，千古一帝');
-INSERT INTO `t_driver_use_man` VALUES ('106268278095872', '孙中山', '0', '18888888888', '1888888888', NULL, 1, '三民主义');
-INSERT INTO `t_driver_use_man` VALUES ('116145581747232', '李世民', '1', '13948151026', '4209811201201', NULL, 0, '大唐第二君主，圣君，千古一帝');
-INSERT INTO `t_driver_use_man` VALUES ('192896535498752', '朱元璋', '1', '1', '1', NULL, 0, '大明开国君主');
-INSERT INTO `t_driver_use_man` VALUES ('2', '李渊', '2', '18564783306', '4209811201201', NULL, 0, '李唐天下开国君主');
-INSERT INTO `t_driver_use_man` VALUES ('221655456456704', '李善长', '3', '13476091609', '42222', NULL, 0, '大明第二任丞相');
-INSERT INTO `t_driver_use_man` VALUES ('288045106364416', '刘伯温', '2', '11', '11', NULL, 1, '11');
-INSERT INTO `t_driver_use_man` VALUES ('3', '刘邦', '1', '16844780614', '4209811201201', NULL, 0, '大汉开国君主，千古一帝');
-INSERT INTO `t_driver_use_man` VALUES ('306046819643392', '姬昌', '0', '17637837837', '178323892389338999', NULL, 1, '大周开国君主');
-INSERT INTO `t_driver_use_man` VALUES ('306208921104384', '朱允炆', '0', '3', '3', NULL, 1, '3');
-INSERT INTO `t_driver_use_man` VALUES ('347296509624320', '刘雪川', '1168347166960156673', '', '', NULL, 0, '');
-INSERT INTO `t_driver_use_man` VALUES ('494928455344128', '刘彻', '4', '12707320585', '4209811201201', NULL, 0, '大汉第二代领导集体，汉武帝，犯我强汉者虽远必诛');
-INSERT INTO `t_driver_use_man` VALUES ('506809953865728', '朱重八', '2', '18984693202', '4209811201201', NULL, 0, '大明开国君主');
-INSERT INTO `t_driver_use_man` VALUES ('511622493683712', '嬴政', '2', '18788283838', '143343199809230019', NULL, 0, '大秦统一六国后君主，暴君');
-INSERT INTO `t_driver_use_man` VALUES ('554387646672896', '杨戬', '0', '18989890909', '189898198909890999', NULL, 1, '玉鼎真人弟子，辅佐姜太公伐商');
-INSERT INTO `t_driver_use_man` VALUES ('578498511212544', '朱标', '2', '14736980548', '4209811201201', NULL, 0, '大明开国后第一任太子');
-INSERT INTO `t_driver_use_man` VALUES ('715284943486976', '朱隶', '1', 'a', 'a', NULL, 1, 'a');
-INSERT INTO `t_driver_use_man` VALUES ('715530230579200', '朱高炽', '1', 'a', 'a', NULL, 1, 'a');
-INSERT INTO `t_driver_use_man` VALUES ('716389513445376', '朱由校', '2', '1', '1', NULL, 1, '1');
-INSERT INTO `t_driver_use_man` VALUES ('748796396466176', '朱由检', '3', '1', '1', NULL, 1, '1');
-INSERT INTO `t_driver_use_man` VALUES ('750174225793024', '拓跋宏', '0', '18990909898', '189098199809090099', NULL, 0, '大魏皇帝，鲜卑皇帝，汉化改革');
-INSERT INTO `t_driver_use_man` VALUES ('750489603899392', '郭鑫年', '0', '13434343434', '123123133212122211', NULL, 0, '你是不是死了');
-INSERT INTO `t_driver_use_man` VALUES ('750644809924608', '罗帷', '0', '13212124323', '123123112212121122', NULL, 0, '张小龙');
-INSERT INTO `t_driver_use_man` VALUES ('752010248814592', '铁木真', '3', '2323', '2323', NULL, 0, '蒙古鬼子领导者，邪魔的化身');
-INSERT INTO `t_driver_use_man` VALUES ('992538885857280', '朱常洛', '0', '1', '1', NULL, 1, '1');
-INSERT INTO `t_driver_use_man` VALUES ('998887292362752', '赵匡胤', '1', '44', '44', NULL, 0, '大宋开国君主');
-COMMIT;
+/*Data for the table `t_driver_use_man` */
 
--- ----------------------------
--- Table structure for t_duty
--- ----------------------------
+insert  into `t_driver_use_man`(`t_driver_id`,`t_use_name`,`t_department`,`t_tel`,`t_card_id`,`t_status`,`t_data_status`,`t_remark`) values ('1','赵构','1','13477098836','4209811201201',NULL,1,'大宋最后两代君主'),('105276513456128','玄烨','1','1','1',NULL,1,'满清入关第二位君主，千古一帝'),('106268278095872','孙中山','0','18888888888','1888888888',NULL,1,'三民主义'),('116145581747232','李世民','1','13948151026','4209811201201',NULL,1,'大唐第二君主，圣君，千古一帝'),('117819533652860','车管','110',NULL,NULL,NULL,0,NULL),('117830765439036','班车','1',NULL,NULL,NULL,0,NULL),('117830853770659','穆长义','110',NULL,NULL,NULL,0,NULL),('117977566395286','王超博','1',NULL,NULL,NULL,0,NULL),('118063702159442','营房','1',NULL,NULL,NULL,0,NULL),('118146838541157','测试','1',NULL,NULL,NULL,0,NULL),('118148803004672','卫生所','1',NULL,NULL,NULL,0,NULL),('118156331615000','高敬民','1',NULL,NULL,NULL,0,NULL),('118188487779712','政工','1',NULL,NULL,NULL,0,NULL),('118212751127064','外交部街院','1',NULL,NULL,NULL,0,NULL),('118228899481416','总机','1',NULL,NULL,NULL,0,NULL),('118265370836359','梁积富','1',NULL,NULL,NULL,0,NULL),('118265492123467','刘俊志','1',NULL,NULL,NULL,0,NULL),('118282568645420','王海俊','1',NULL,NULL,NULL,0,NULL),('192896535498752','朱元璋','1','1','1',NULL,1,'大明开国君主'),('2','李渊','2','18564783306','4209811201201',NULL,1,'李唐天下开国君主'),('221655456456704','李善长','3','13476091609','42222',NULL,1,'大明第二任丞相'),('239692522356736','妥妥','1177516601106231296','','',NULL,1,''),('288045106364416','刘伯温','2','11','11',NULL,1,'11'),('3','刘邦','1','16844780614','4209811201201',NULL,1,'大汉开国君主，千古一帝'),('306046819643392','姬昌','0','17637837837','178323892389338999',NULL,1,'大周开国君主'),('306208921104384','朱允炆','0','3','3',NULL,1,'3'),('312880203739136','耿淑明','1178312424840736769','','',NULL,0,''),('312952626786304','吕祥胜','1178312424840736769','','',NULL,0,''),('313027428003840','蔡英','1178312424840736769','','',NULL,0,''),('313110001266688','朱显东','1178312424840736769','','',NULL,0,''),('313441019932672','孟振乾','1178312471158435841','','',NULL,0,''),('313580597981184','李子平','1178312471158435841','','',NULL,0,''),('313675728990208','刘岐山','1178312471158435841','','',NULL,0,''),('313792062205952','牟壮善','1178312471158435841','','',NULL,0,''),('313876518711296','李林英','1178312471158435841','','',NULL,0,''),('313941807247360','刘景武','1178312471158435841','','',NULL,0,''),('314003476099072','汤自强','1178312471158435841','','',NULL,0,''),('314081058140160','刘立生','1178312471158435841','','',NULL,0,''),('314151899934720','穆长义','1178312471158435841','','',NULL,0,''),('314247362293760','赵明昌','1178312471158435841','','',NULL,0,''),('314320670339072','王云秀','1178312471158435841','','',NULL,0,''),('314374625865728','华江','1178312471158435841','','',NULL,0,''),('314430661767168','林淑文','1178312471158435841','','',NULL,0,''),('314573435875328','王文学','1178312276194603009','','',NULL,0,''),('314645624041472','冉文杰','1178312248621248513','','',NULL,0,''),('314792525344768','刘骁磊','1178312248621248513','','',NULL,0,''),('347296509624320','刘雪川','1168347166960156673','','',NULL,1,''),('494928455344128','刘彻','4','12707320585','4209811201201',NULL,1,'大汉第二代领导集体，汉武帝，犯我强汉者虽远必诛'),('506809953865728','朱重八','2','18984693202','4209811201201',NULL,1,'大明开国君主'),('508818528972800','朱显东',NULL,NULL,NULL,NULL,0,NULL),('511622493683712','嬴政','2','18788283838','143343199809230019',NULL,1,'大秦统一六国后君主，暴君'),('516013094170624','朱显东','','','',NULL,0,''),('516145223135232','朱显东','','','',NULL,0,''),('516744584982528','王广扩','1177516601106231296','','',NULL,0,''),('520918190092288','所用',NULL,NULL,NULL,NULL,0,NULL),('554387646672896','杨戬','0','18989890909','189898198909890999',NULL,1,'玉鼎真人弟子，辅佐姜太公伐商'),('578498511212544','朱标','2','14736980548','4209811201201',NULL,1,'大明开国后第一任太子'),('590990162092032','军需',NULL,NULL,NULL,NULL,0,NULL),('715284943486976','朱隶','1','a','a',NULL,1,'a'),('715530230579200','朱高炽','1','a','a',NULL,1,'a'),('716389513445376','朱由校','2','1','1',NULL,1,'1'),('748796396466176','朱由检','3','1','1',NULL,1,'1'),('750174225793024','拓跋宏','0','18990909898','189098199809090099',NULL,1,'大魏皇帝，鲜卑皇帝，汉化改革'),('750489603899392','郭鑫年','0','13434343434','123123133212122211',NULL,1,'你是不是死了'),('750644809924608','罗帷','0','13212124323','123123112212121122',NULL,1,'张小龙'),('752010248814592','铁木真','3','2323','2323',NULL,1,'蒙古鬼子领导者，邪魔的化身'),('911027301343232','吕祥胜',NULL,NULL,NULL,NULL,0,NULL),('992538885857280','朱常洛','0','1','1',NULL,1,'1'),('998887292362752','赵匡胤','1','44','44',NULL,1,'大宋开国君主');
+
+/*Table structure for table `t_duty` */
+
 DROP TABLE IF EXISTS `t_duty`;
+
 CREATE TABLE `t_duty` (
-  `duty_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '值班id',
-  `duty_company` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '值班单位',
+  `duty_id` varchar(255) NOT NULL COMMENT '值班id',
+  `duty_company` varchar(255) DEFAULT NULL COMMENT '值班单位',
   `duty_create_date` datetime DEFAULT NULL COMMENT '制表日期',
-  `duty_week` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '星期几',
+  `duty_week` varchar(255) DEFAULT NULL COMMENT '星期几',
   `duty_date_start` datetime DEFAULT NULL,
   `duty_date_end` datetime DEFAULT NULL,
   `duty_date` date DEFAULT NULL COMMENT '对应的日期',
-  `duty_leader` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '值班领导',
-  `duty_man` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '值班员',
+  `duty_leader` varchar(255) DEFAULT NULL COMMENT '值班领导',
+  `duty_man` varchar(255) DEFAULT NULL COMMENT '值班员',
   PRIMARY KEY (`duty_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_duty
--- ----------------------------
-BEGIN;
-INSERT INTO `t_duty` VALUES ('1', NULL, '2019-08-29 11:36:27', '星期一', NULL, NULL, '2019-08-26', '刘云民', '刘俊志');
-INSERT INTO `t_duty` VALUES ('1166917502365900800', '卫戍区东城第四干休所', '2019-08-29 11:36:27', '星期一', NULL, NULL, '2019-09-02', '刘云民', '曾健文');
-INSERT INTO `t_duty` VALUES ('1166917502642724864', '卫戍区东城第四干休所', '2019-08-29 11:36:28', '星期二', NULL, NULL, '2019-09-03', '刘云民', '刘俊志');
-INSERT INTO `t_duty` VALUES ('1166917503003435008', '卫戍区东城第四干休所', '2019-08-29 11:36:28', '星期三', NULL, NULL, '2019-09-04', '刘云民', '刘骁磊');
-INSERT INTO `t_duty` VALUES ('1166984907411451904', '卫戍区东城第四干休所', '2019-08-29 16:04:18', '星期一', NULL, NULL, '2019-09-02', '刘云民', '曾健文');
-INSERT INTO `t_duty` VALUES ('1166984907935739904', '卫戍区东城第四干休所', '2019-08-29 16:04:18', '星期二', NULL, NULL, '2019-09-03', '刘云民', '刘俊志');
-INSERT INTO `t_duty` VALUES ('1166984908199981056', '卫戍区东城第四干休所', '2019-08-29 16:04:18', '星期三', NULL, NULL, '2019-09-04', '刘云民', '刘骁磊');
-INSERT INTO `t_duty` VALUES ('1166995239222939648', '卫戍区东城第四干休所', '2019-08-29 16:45:21', '星期一', NULL, NULL, '2019-09-02', '刘云民', '曾健文');
-INSERT INTO `t_duty` VALUES ('1166995239550095360', '卫戍区东城第四干休所', '2019-08-29 16:45:21', '星期二', NULL, NULL, '2019-09-03', '刘云民', '刘俊志');
-INSERT INTO `t_duty` VALUES ('1166995239860473856', '卫戍区东城第四干休所', '2019-08-29 16:45:22', '星期三', NULL, NULL, '2019-09-04', '刘云民', '刘骁磊');
-INSERT INTO `t_duty` VALUES ('1167005714933387264', '卫戍区东城第四干休所', '2019-08-29 17:26:59', '星期一', '2019-09-02 08:00:00', '2019-09-02 08:00:00', NULL, '刘云民', '曾健文');
-INSERT INTO `t_duty` VALUES ('1167005715239571456', '卫戍区东城第四干休所', '2019-08-29 17:26:59', '星期二', '2019-09-03 08:00:00', '2019-09-03 08:00:00', NULL, '刘云民', '刘俊志');
-INSERT INTO `t_duty` VALUES ('1167005715600281600', '卫戍区东城第四干休所', '2019-08-29 17:26:59', '星期三', '2019-09-04 08:00:00', '2019-09-04 08:00:00', NULL, '刘云民', '刘骁磊');
-INSERT INTO `t_duty` VALUES ('2', NULL, '2019-08-29 11:36:27', '星期二', NULL, NULL, '2019-08-27', '刘云民', '刘骁磊');
-INSERT INTO `t_duty` VALUES ('3', NULL, '2019-08-29 11:36:27', '星期三', NULL, NULL, '2019-08-28', '刘云民', '孙海涛');
-INSERT INTO `t_duty` VALUES ('4', NULL, '2019-08-29 11:36:27', '星期四', NULL, NULL, '2019-08-29', '刘云民', '曾健文');
-INSERT INTO `t_duty` VALUES ('5', NULL, '2019-08-29 11:36:27', '星期五', NULL, NULL, '2019-08-30', '刘云民', '刘俊志');
-INSERT INTO `t_duty` VALUES ('6', NULL, '2019-08-29 11:36:27', '星期六', NULL, NULL, '2019-08-31', '刘云民', '刘骁磊');
-INSERT INTO `t_duty` VALUES ('7', NULL, '2019-08-29 11:36:27', '星期日', NULL, NULL, '2019-09-01', '刘云民', '孙海涛');
-COMMIT;
+/*Data for the table `t_duty` */
 
--- ----------------------------
--- Table structure for t_matter
--- ----------------------------
+insert  into `t_duty`(`duty_id`,`duty_company`,`duty_create_date`,`duty_week`,`duty_date_start`,`duty_date_end`,`duty_date`,`duty_leader`,`duty_man`) values ('1',NULL,'2019-08-29 11:36:27','星期一',NULL,NULL,'2019-08-26','刘云民','刘俊志'),('1166917502365900800','卫戍区东城第四干休所','2019-08-29 11:36:27','星期一',NULL,NULL,'2019-09-02','刘云民','曾健文'),('1166917502642724864','卫戍区东城第四干休所','2019-08-29 11:36:28','星期二',NULL,NULL,'2019-09-03','刘云民','刘俊志'),('1166917503003435008','卫戍区东城第四干休所','2019-08-29 11:36:28','星期三',NULL,NULL,'2019-09-04','刘云民','刘骁磊'),('1166984907411451904','卫戍区东城第四干休所','2019-08-29 16:04:18','星期一',NULL,NULL,'2019-09-02','刘云民','曾健文'),('1166984907935739904','卫戍区东城第四干休所','2019-08-29 16:04:18','星期二',NULL,NULL,'2019-09-03','刘云民','刘俊志'),('1166984908199981056','卫戍区东城第四干休所','2019-08-29 16:04:18','星期三',NULL,NULL,'2019-09-04','刘云民','刘骁磊'),('1166995239222939648','卫戍区东城第四干休所','2019-08-29 16:45:21','星期一',NULL,NULL,'2019-09-02','刘云民','曾健文'),('1166995239550095360','卫戍区东城第四干休所','2019-08-29 16:45:21','星期二',NULL,NULL,'2019-09-03','刘云民','刘俊志'),('1166995239860473856','卫戍区东城第四干休所','2019-08-29 16:45:22','星期三',NULL,NULL,'2019-09-04','刘云民','刘骁磊'),('1167005714933387264','卫戍区东城第四干休所','2019-08-29 17:26:59','星期一','2019-09-02 08:00:00','2019-09-02 08:00:00',NULL,'刘云民','曾健文'),('1167005715239571456','卫戍区东城第四干休所','2019-08-29 17:26:59','星期二','2019-09-03 08:00:00','2019-09-03 08:00:00',NULL,'刘云民','刘俊志'),('1167005715600281600','卫戍区东城第四干休所','2019-08-29 17:26:59','星期三','2019-09-04 08:00:00','2019-09-04 08:00:00',NULL,'刘云民','刘骁磊'),('2',NULL,'2019-08-29 11:36:27','星期二',NULL,NULL,'2019-08-27','刘云民','刘骁磊'),('3',NULL,'2019-08-29 11:36:27','星期三',NULL,NULL,'2019-08-28','刘云民','孙海涛'),('4',NULL,'2019-08-29 11:36:27','星期四',NULL,NULL,'2019-08-29','刘云民','曾健文'),('5',NULL,'2019-08-29 11:36:27','星期五',NULL,NULL,'2019-08-30','刘云民','刘俊志'),('6',NULL,'2019-08-29 11:36:27','星期六',NULL,NULL,'2019-08-31','刘云民','刘骁磊'),('7',NULL,'2019-08-29 11:36:27','星期日',NULL,NULL,'2019-09-01','刘云民','孙海涛');
+
+/*Table structure for table `t_matter` */
+
 DROP TABLE IF EXISTS `t_matter`;
+
 CREATE TABLE `t_matter` (
-  `t_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '主键',
-  `t_cause` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '事由内容',
+  `t_id` varchar(255) NOT NULL COMMENT '主键',
+  `t_cause` varchar(255) DEFAULT NULL COMMENT '事由内容',
   `t_create_date` datetime DEFAULT NULL COMMENT '创建时间',
   `t_data_status` int(11) DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`t_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_matter
--- ----------------------------
-BEGIN;
-INSERT INTO `t_matter` VALUES ('972358682558464', '扫黑除恶出重拳，不获全胜不收兵', '2019-09-01 09:28:05', 0);
-INSERT INTO `t_matter` VALUES ('972537208913920', '有黑必扫，有恶必除，有伞必打，有腐必反', '2019-09-01 09:28:47', 0);
-INSERT INTO `t_matter` VALUES ('972613943705600', '新时代', '2019-09-01 09:29:06', 0);
-INSERT INTO `t_matter` VALUES ('972674048081920', '不忘初心，牢记使命', '2019-09-01 09:29:20', 0);
-COMMIT;
+/*Data for the table `t_matter` */
 
--- ----------------------------
--- Table structure for t_paiche
--- ----------------------------
+insert  into `t_matter`(`t_id`,`t_cause`,`t_create_date`,`t_data_status`) values ('081929822924801','拿东西','2019-10-10 07:54:29',0),('092165443022848','接文职人员','2019-10-10 08:35:09',0),('095324053544961','送东西','2019-10-04 20:20:25',0),('206762327351296','办事','2019-10-07 21:56:53',0),('208916899373057','报表','2019-10-07 22:05:26',0),('288994352795648','结账','2019-10-10 21:37:17',0),('290209497190400','遗体告别','2019-10-10 21:42:06',0),('315157572399104','送站','2019-09-29 22:26:40',0),('315197791580160','接人','2019-09-29 22:26:50',0),('315231501201408','送人','2019-09-29 22:26:58',0),('315315060125696','看住院老干部','2019-09-29 22:27:18',0),('315376330518528','加油','2019-09-29 22:27:32',0),('315414137974784','送文件','2019-09-29 22:27:41',0),('315471214063616','取文件','2019-09-29 22:27:55',0),('315501245280256','开会','2019-09-29 22:28:02',0),('468385126359040','测试','2019-10-08 15:16:28',0),('508818327646208','陪床','2019-09-27 17:02:34',0),('515734378475520','看病','2019-09-27 17:30:03',0),('558383000625152','有黑必扫，有恶必除，有伞必打，有腐必反','2019-09-30 14:33:10',0),('564306081247232','打疫苗','2019-10-08 21:37:38',0),('590989914628096','采购','2019-09-27 22:29:05',0),('653298936610816','大讲堂','2019-10-11 21:44:54',0),('653707931582464','出院','2019-10-11 21:46:31',0),('654009288130560','检查维护车辆','2019-10-11 21:47:43',0),('654920563589120','报考','2019-10-11 21:51:20',0),('668259899056128','保障阅兵','2019-09-30 21:49:46',0),('755560438067200','买东西','2019-10-09 10:17:36',0),('760067125440512','取东西','2019-10-09 10:35:31',0),('775663541821440','接阅兵人员','2019-10-03 23:10:12',0),('825686110273536','拉东西','2019-10-12 09:09:54',0),('860390603653120','拉被装','2019-10-12 11:27:48',0),('911027091628032','接站','2019-09-28 19:40:48',0),('929410991812608','买书','2019-10-09 21:48:25',0);
+
+/*Table structure for table `t_paiche` */
+
 DROP TABLE IF EXISTS `t_paiche`;
+
 CREATE TABLE `t_paiche` (
-  `t_paiche_id` varchar(225) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '派车单id',
-  `t_no` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '单号（流水号）',
+  `t_paiche_id` varchar(225) NOT NULL COMMENT '派车单id',
+  `t_no` varchar(255) DEFAULT NULL COMMENT '单号（流水号）',
   `t_date` datetime DEFAULT NULL COMMENT '开单日期',
   `t_dept_id` int(11) DEFAULT NULL,
-  `t_use_man` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '用车人',
-  `t_cause` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '事由去向',
+  `t_use_man` varchar(255) DEFAULT NULL COMMENT '用车人',
+  `t_cause` varchar(255) DEFAULT NULL COMMENT '事由去向',
   `t_man` int(11) DEFAULT NULL COMMENT '人数',
   `t_weight` int(11) DEFAULT NULL COMMENT '载重',
-  `t_car_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '车号（车辆id)',
-  `t_driver_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '驾驶人ID',
-  `t_des_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '目的地',
-  `t_drive_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '开车时间',
+  `t_car_id` varchar(255) DEFAULT NULL COMMENT '车号（车辆id)',
+  `t_driver_id` varchar(255) DEFAULT NULL COMMENT '驾驶人ID',
+  `t_des_id` varchar(255) DEFAULT NULL COMMENT '目的地',
+  `t_drive_time` varchar(255) DEFAULT NULL COMMENT '开车时间',
   `t_go_mileage` int(11) DEFAULT NULL COMMENT '出场前里程表指数',
   `t_come_mileage` int(11) DEFAULT NULL COMMENT '回场前里程表指数',
   `t_mileage` int(11) DEFAULT NULL COMMENT '行驶里程',
-  `t_com_mander` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '派车人',
-  `t_audit_leadership` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '审核领导',
-  `t_return_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '实际回场时间',
-  `t_storage_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '实际出场时间',
-  `t_guji_reture_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '估计回场时间',
-  `t_guji_storage_time` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '估计出场时间',
-  `t_update_time` varchar(0) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '更新时间',
+  `t_com_mander` varchar(255) DEFAULT NULL COMMENT '派车人',
+  `t_audit_leadership` varchar(255) DEFAULT NULL COMMENT '审核领导',
+  `t_return_time` varchar(255) DEFAULT NULL COMMENT '实际回场时间',
+  `t_storage_time` varchar(255) DEFAULT NULL COMMENT '实际出场时间',
+  `t_guji_reture_time` varchar(255) DEFAULT NULL COMMENT '估计回场时间',
+  `t_guji_storage_time` varchar(255) DEFAULT NULL COMMENT '估计出场时间',
+  `t_update_time` varchar(0) DEFAULT NULL COMMENT '更新时间',
   `t_data_status` int(2) DEFAULT NULL COMMENT '数据状态 0正常 1删除',
-  `t_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
-  `t_status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '审核状态 1取消订单 2正常订单 3已完成',
-  `t_car_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `t_remark` varchar(255) DEFAULT NULL COMMENT '备注',
+  `t_status` varchar(255) DEFAULT NULL COMMENT '审核状态 1取消订单 2正常订单 3已完成',
+  `t_car_type` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`t_paiche_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Table structure for t_paiche_car_driver
--- ----------------------------
+/*Data for the table `t_paiche` */
+
+insert  into `t_paiche`(`t_paiche_id`,`t_no`,`t_date`,`t_dept_id`,`t_use_man`,`t_cause`,`t_man`,`t_weight`,`t_car_id`,`t_driver_id`,`t_des_id`,`t_drive_time`,`t_go_mileage`,`t_come_mileage`,`t_mileage`,`t_com_mander`,`t_audit_leadership`,`t_return_time`,`t_storage_time`,`t_guji_reture_time`,`t_guji_storage_time`,`t_update_time`,`t_data_status`,`t_remark`,`t_status`,`t_car_type`) values ('007241522487296','20191001201645','2019-10-01 20:16:46',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','508817778192384',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-02 09:33:41','2019-10-02 08:54:40','2019-10-02 11:00:00','2019-10-02 09:00:00',NULL,0,NULL,'3','6'),('022187551072256','20191004152947','2019-10-04 15:29:48',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 16:01:13','2019-10-04 15:28:15','2019-10-04 16:29:41','2019-10-04 15:29:38',NULL,0,NULL,'3','6'),('024126229684224','20191004153730','2019-10-04 15:37:30',1,'314430661767168','911027091628032',NULL,NULL,'117746655708542','1177466557085421569','911026890301440',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 17:00:00','2019-10-04 15:40:53',NULL,1,NULL,'1','9'),('024594947350528','20191004153921','2019-10-04 15:39:22',1,'314430661767168','911027091628032',NULL,NULL,'117746655708542','1177464351275782145','911026890301440',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 17:09:16','2019-10-04 15:49:10','2019-10-04 17:00:00','2019-10-04 15:50:09',NULL,0,NULL,'3','9'),('053154604589056','20191007114629','2019-10-07 11:46:30',1,'313110001266688','315197791580160',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-07 12:30:29','2019-10-07 11:46:37','2019-10-07 14:00:00','2019-11-07 12:00:00',NULL,0,NULL,'3','6'),('063979566768128','20191004181551','2019-10-04 18:15:52',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 18:38:58','2019-10-04 18:14:54','2019-10-04 19:00:00','2019-10-04 18:15:45',NULL,0,NULL,'3','6'),('081929822924800','20191010075428','2019-10-10 07:54:29',1,'313027428003840','081929822924801',NULL,NULL,'117746397427915','1178195336167890944','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 10:00:00','2019-10-10 07:54:18',NULL,1,NULL,'1','3'),('082409445781504','20191010075623','2019-10-10 07:56:23',1,'313027428003840','081929822924801',NULL,NULL,'117746397427915','1178195336167890944','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 10:00:00','2019-10-10 07:56:16',NULL,1,NULL,'1','3'),('092165262667776','20191010083509','2019-10-10 08:35:09',1,'520918190092288','092165443022848',NULL,NULL,'117746655708542','1177466557085421569','092165262667777',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 15:50:21','2019-10-10 14:13:12','2019-10-10 17:00:00','2019-10-10 14:00:00',NULL,0,NULL,'3','9'),('095324053544960','20191004202025','2019-10-04 20:20:25',1,'314430661767168','095324053544961',NULL,NULL,'117746655708542','1177464351275782145','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 20:30:00','2019-10-04 00:00:00',NULL,1,NULL,'1','9'),('096061215055872','20191004202320','2019-10-04 20:23:21',1,'314430661767168','095324053544961',NULL,NULL,'117746655708542','1177466557085421569','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 22:22:05','2019-10-04 20:30:06','2019-10-04 21:30:00','2019-10-04 20:22:42',NULL,0,NULL,'3','9'),('107173830139904','20191007152108','2019-10-07 15:21:09',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-07 16:14:42','2019-10-07 15:22:10','2019-10-07 18:00:00','2019-10-07 15:30:00',NULL,0,NULL,'3','6'),('112525372399616','20191004212846','2019-10-04 21:28:46',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-05 09:56:45','2019-10-05 08:37:33','2019-10-05 11:00:00','2019-10-05 09:00:00',NULL,0,NULL,'3','6'),('127510977048576','20191010105536','2019-10-10 10:55:36',1,'118212751127064','564306081247232',NULL,NULL,'117746484905158','1182127510981242880','564305913475072',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 15:00:00','2019-10-10 11:30:00',NULL,1,NULL,'1','2'),('150459492016128','20191007181308','2019-10-07 18:13:09',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-07 18:35:28','2019-10-07 18:13:05','2019-10-07 20:00:00','2019-10-07 18:30:00',NULL,0,NULL,'3','6'),('196419293933568','20191010152925','2019-10-10 15:29:25',1,'314430661767168','911027091628032',NULL,NULL,'117746435127578','1177464351275782145','196419298127872',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 18:00:00','2019-10-10 16:00:00',NULL,1,NULL,'1','1'),('196898782572544','20191010153119','2019-10-10 15:31:20',1,'314430661767168','315231501201408',NULL,NULL,'117746435127578','1177464351275782145','196898782572545',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 19:31:03','2019-10-10 15:31:23','2019-10-10 18:00:00','2019-10-10 15:31:12',NULL,0,NULL,'3','1'),('199943937597440','20191002090229','2019-10-02 09:02:30',1,'520918190092288','315501245280256',NULL,NULL,'117746655708542','1177466557085421569','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-02 11:50:57','2019-10-02 09:26:26','2019-10-02 12:00:00','2019-10-02 09:15:30',NULL,0,NULL,'3','9'),('205931825799168','20191007215334','2019-10-07 21:53:35',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 09:49:53','2019-10-08 07:50:58','2019-10-08 10:00:00','2019-10-08 08:30:00',NULL,0,NULL,'3','6'),('206762100858880','20191007215652','2019-10-07 21:56:53',1,'312952626786304','206762327351296',NULL,NULL,'117746385035005','1177463850350055425','206762100858881',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 10:48:06','2019-10-08 08:46:15','2019-10-08 12:00:00','2019-10-08 08:30:00',NULL,0,NULL,'3','3'),('207138103435264','20191007215822','2019-10-07 21:58:22',1,'117830853770659','515734378475520',NULL,NULL,'117746606732912','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 09:02:08','2019-10-08 08:02:49','2019-10-08 12:00:00','2019-10-08 08:00:00',NULL,0,NULL,'3','6'),('208916899373056','20191007220526','2019-10-07 22:05:26',1,'118063702159442','208916899373057',NULL,NULL,'117746628625082','1180637021305020416','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 08:23:22','2019-10-08 08:08:05','2019-10-08 11:00:00','2019-10-08 08:30:00',NULL,0,NULL,'3','6'),('223447556657152','20191010171649','2019-10-10 17:16:49',1,'520918190092288','315231501201408',NULL,NULL,'117746372036438','1177465813330464769','315810487119872',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 18:05:15','2019-10-10 17:27:15','2019-10-10 19:30:00','2019-10-10 17:16:34',NULL,0,NULL,'3','6'),('236438901592064','20191010180826','2019-10-10 18:08:27',1,'520918190092288','315231501201408',NULL,NULL,'117746666706007','1177465813330464769','315810487119872',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 19:53:06','2019-10-10 18:23:43','2019-10-10 21:00:00','2019-10-10 18:30:00',NULL,0,NULL,'3','10'),('240688692039680','20191010182519','2019-10-10 18:25:20',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 19:19:14','2019-10-10 18:24:05','2019-10-10 20:00:00','2019-10-10 18:25:02',NULL,0,NULL,'3','6'),('288422304256000','20191010213500','2019-10-10 21:35:01',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 10:29:35','2019-10-11 08:23:03','2019-10-11 10:00:00','2019-10-11 08:30:00',NULL,0,NULL,'3','6'),('288994340212736','20191010213716','2019-10-10 21:37:17',1,'118228899481416','288994352795648',NULL,NULL,'117746606732912','1177466067329126401','929109341663233',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 11:35:02','2019-10-11 08:33:16','2019-10-11 11:00:00','2019-10-11 08:30:00',NULL,0,NULL,'3','6'),('289553633873920','20191010213930','2019-10-10 21:39:30',1,'312880203739136','515734378475520',NULL,NULL,'117746353165006','1177464351275782145','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 10:17:32','2019-10-11 08:28:37','2019-10-11 11:00:00','2019-10-11 08:30:00',NULL,0,NULL,'3','3'),('289902436388864','20191010214053','2019-10-10 21:40:53',1,'117830765439036','515734378475520',NULL,NULL,'117746552298396','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 09:48:59','2019-10-11 07:47:48','2019-10-11 11:00:00','2019-10-11 08:00:00',NULL,0,NULL,'3','3'),('290209342001152','20191010214206','2019-10-10 21:42:07',1,'520918190092288','290209497190400',NULL,NULL,'117746372036438','1179775663671844864','290209346195456',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 10:36:56','2019-10-11 08:09:29','2019-10-10 12:00:00','2019-10-11 08:30:00',NULL,1,NULL,'1','6'),('298200760066048','20191002153256','2019-10-02 15:32:56',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-02 16:02:28','2019-10-02 15:37:28','2019-10-02 16:30:40','2019-10-02 15:50:24',NULL,0,NULL,'3','6'),('308975406522368','20191005102923','2019-10-05 10:29:24',1,'117819533652860','315376330518528',NULL,NULL,'117746641125366','1177466067329126401','315962853601280',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-05 18:00:00','2019-10-05 16:01:00',NULL,1,NULL,'3','7'),('309845909151744','20191005103251','2019-10-05 10:32:51',1,'117819533652860','315376330518528',NULL,NULL,'117746641125366','1177466067329126401','315962853601280',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-05 18:00:00','2019-10-05 16:02:00',NULL,1,NULL,'3','7'),('310556659130368','20191005103540','2019-10-05 10:35:41',1,'117819533652860','315376330518528',NULL,NULL,'117746641125366','1177466067329126401','315962853601280',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-05 17:20:55','2019-10-05 15:38:44','2019-10-05 18:00:00','2019-10-05 16:00:00',NULL,1,NULL,'3','7'),('344598599704576','20191002183718','2019-10-02 18:37:18',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-02 19:06:26','2019-10-02 18:35:57','2019-10-02 19:38:00','2019-10-02 18:45:58',NULL,0,NULL,'3','6'),('353886276886528','20191008074129','2019-10-08 07:41:30',1,'117819533652860','315376330518528',NULL,NULL,'117746655708542','1177466557085421569','315921015418880',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 10:47:33','2019-10-08 07:59:08','2019-10-08 11:00:00','2019-10-08 08:00:00',NULL,0,NULL,'3','9'),('365883462721536','20191008082910','2019-10-08 08:29:10',1,'118063702159442','208916899373057',NULL,NULL,'117746628625082','1180637021305020416','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 12:16:51','2019-10-08 08:27:57','2019-10-08 11:00:00','2019-10-08 08:30:00',NULL,0,NULL,'3','6'),('403819071741952','20191008105954','2019-10-08 10:59:55',1,'313027428003840','515734378475520',NULL,NULL,'117746397427915','1178195336167890944','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 08:08:10','2019-10-08 14:47:03','2019-10-08 18:00:00','2019-10-08 14:30:00',NULL,0,NULL,'3','3'),('414991901106176','20191005173039','2019-10-05 17:30:40',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-05 19:04:21','2019-10-05 17:30:26','2019-10-05 19:00:00','2019-10-05 17:30:26',NULL,0,NULL,'3','6'),('415412832641024','20191008114558','2019-10-08 11:45:59',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 12:06:42','2019-10-08 11:45:55','2019-10-08 14:00:00','2019-10-08 12:00:00',NULL,0,NULL,'3','6'),('438437836328960','20191011073106','2019-10-11 07:31:07',1,'520918190092288','315315060125696',NULL,NULL,'117746655708542','1177466557085421569','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 09:40:03','2019-10-11 08:29:17','2019-10-11 10:00:00','2019-10-11 08:30:00',NULL,0,NULL,'3','9'),('439114000076800','20191011073348','2019-10-11 07:33:48',1,'117819533652860','315376330518528',NULL,NULL,'117746666706007','1177465813330464769','315962853601280',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 08:57:16','2019-10-11 08:07:48','2019-10-11 10:30:00','2019-10-11 08:30:00',NULL,0,NULL,'3','10'),('468385122164736','20191008151628','2019-10-08 15:16:28',1,'118146838541157','468385126359040',NULL,NULL,'117746641125366','1177519146306367488','545103598854144',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 21:00:00','2019-10-08 15:16:20',NULL,1,NULL,'1','7'),('469961354190848','20191008152244','2019-10-08 15:22:44',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 16:21:16','2019-10-08 15:23:21','2019-10-08 17:00:00','2019-10-08 15:22:33',NULL,0,NULL,'3','6'),('474644209356800','20191011095459','2019-10-11 09:54:59',1,'117830765439036','515734378475520',NULL,NULL,'117746552298396','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 09:58:44','2019-10-11 12:00:00','2019-10-11 09:54:48',NULL,0,NULL,'3','3'),('488029849591808','20191008163432','2019-10-08 16:34:32',1,'118148803004672','315414137974784',NULL,NULL,'117746606732912','1179775663671844864','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 17:32:06','2019-10-08 16:37:11','2019-10-08 18:00:00','2019-10-08 16:33:57',NULL,0,NULL,'3','6'),('488728793030656','20191005222340','2019-10-05 22:23:40',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 09:13:20','2019-10-06 08:21:45','2019-10-06 11:00:00','2019-10-06 09:00:00',NULL,0,NULL,'3','6'),('493482040774656','20191011110950','2019-10-11 11:09:50',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 12:07:51','2019-10-11 11:48:03','2019-10-11 14:00:00','2019-10-11 12:00:00',NULL,0,NULL,'3','6'),('498012522434560','20191011112750','2019-10-11 11:27:51',1,'117819533652860','315376330518528',NULL,NULL,'117746484905158','1177464351275782145','315962853601280',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 16:35:02','2019-10-11 14:57:17','2019-10-11 16:00:00','2019-10-11 14:30:00',NULL,0,NULL,'3','2'),('503644860338176','20191011115013','2019-10-11 11:50:13',1,'520918190092288','290209497190400',NULL,NULL,'117746372036438','1179775663671844864','290209346195456',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 12:00:00','2019-10-11 11:49:51',NULL,1,NULL,'1','6'),('505101030412288','20191011115600','2019-10-11 11:56:01',1,'314320670339072','911027091628032',NULL,NULL,'117746655708542','1177466557085421569','505101038800896',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 14:00:22','2019-10-11 12:01:53','2019-10-11 15:00:00','2019-10-11 11:55:51',NULL,0,NULL,'3','9'),('507160341803008','20191008175033','2019-10-08 17:50:33',1,'192896535498752','558383000625152',NULL,NULL,'117746641125366','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 22:04:04','2019-10-08 17:50:04',NULL,1,NULL,'2','0'),('511461847617536','20191011122117','2019-10-11 12:21:17',1,'117819533652860','315376330518528',NULL,NULL,'117746606732912','1177590990006902784','315921015418880',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 14:05:41','2019-10-11 12:42:16','2019-10-11 14:00:00','2019-10-11 12:21:10',NULL,0,NULL,'3','6'),('518506315804672','20191008183538','2019-10-08 18:35:38',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-08 19:07:42','2019-10-08 18:37:08','2019-10-08 20:00:00','2019-10-08 18:30:00',NULL,0,NULL,'3','6'),('544597224726528','20191003075201','2019-10-03 07:52:02',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-03 09:32:23','2019-10-03 08:43:49','2019-10-03 10:00:00','2019-10-03 08:30:32',NULL,0,NULL,'3','6'),('545103594659840','20191003075402','2019-10-03 07:54:02',1,'314320670339072','315157572399104',NULL,NULL,'117746552298396','1177464351275782145','545103598854144',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-03 10:18:25','2019-10-03 08:37:21','2019-10-03 10:30:00','2019-10-03 08:30:00',NULL,0,NULL,'3','3'),('545547226193920','20191003075548','2019-10-03 07:55:48',1,'312952626786304','315157572399104',NULL,NULL,'117746385035005','1177463850350055425','545547230388224',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-03 20:58:00','2019-10-03 15:46:37','2019-10-03 21:00:00','2019-10-03 16:00:00',NULL,0,NULL,'3','3'),('555646303633408','20191011151651','2019-10-11 15:16:52',1,'520918190092288','515734378475520',NULL,NULL,'117746552298396','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 18:00:00','2019-10-11 15:16:46',NULL,0,NULL,'3','3'),('555822607007744','20191011151733','2019-10-11 15:17:34',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 19:00:23','2019-10-11 15:22:58','2019-10-11 17:00:00','2019-10-11 15:17:25',NULL,0,NULL,'3','6'),('556512398049280','20191011152018','2019-10-11 15:20:18',1,'192896535498752','558383000625152',NULL,NULL,'117746503369743','1177466557085421569','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-09-02 15:59:11','2019-09-02 15:59:13',NULL,0,NULL,'3','9'),('559141251096576','20190930143610','2019-09-30 14:36:11',1,'192896535498752','558383000625152',NULL,NULL,'117746641125366','1177465813330464769','316052347465728',NULL,NULL,NULL,NULL,NULL,NULL,'2019-09-30 14:35:54','2019-09-30 14:35:27','2019-09-02 15:59:11','2019-09-02 15:59:13',NULL,0,NULL,'3','12'),('559791032672256','20190930143845','2019-09-30 14:38:45',1,'192896535498752','315414137974784',NULL,NULL,'117746606732912','1177466067329126401','315962853601280',NULL,NULL,NULL,NULL,NULL,NULL,'2019-09-30 14:40:52','2019-09-30 14:39:16','2019-09-02 15:59:11','2019-09-02 15:59:13',NULL,0,NULL,'3','10'),('562792528900096','20191008213136','2019-10-08 21:31:37',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','508817778192384',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 09:25:01','2019-10-09 08:18:54','2019-10-09 10:00:00','2019-10-09 08:00:00',NULL,0,NULL,'3','6'),('563315772518400','20191008213341','2019-10-08 21:33:42',1,'118156331615000','315501245280256',NULL,NULL,'117746606732912','1177464351275782145','563315776712704',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 08:33:21','2019-10-09 07:48:47','2019-10-09 12:00:00','2019-10-09 07:50:00',NULL,0,NULL,'3','6'),('563474757611520','20191008213419','2019-10-08 21:34:19',1,'312952626786304','515734378475520',NULL,NULL,'117746385035005','1177463850350055425','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 10:23:11','2019-10-09 08:04:51','2019-10-09 10:00:00','2019-10-09 08:00:00',NULL,0,NULL,'3','3'),('563733021880320','20191008213521','2019-10-08 21:35:21',1,'117830765439036','515734378475520',NULL,NULL,'117746552298396','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 09:40:27','2019-10-09 07:48:24','2019-10-09 12:00:00','2019-10-09 08:00:00',NULL,0,NULL,'3','3'),('564305909280768','20191008213737','2019-10-08 21:37:38',1,'118148803004672','564306081247232',NULL,NULL,'117746484905158','1179775663671844864','564305913475072',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 13:40:42','2019-10-09 12:52:42','2019-10-09 13:50:00','2019-10-09 12:50:00',NULL,0,NULL,'3','2'),('564562516799488','20191008213838','2019-10-08 21:38:39',1,'118148803004672','564306081247232',NULL,NULL,'117746460183092','1177465813330464769','564305913475072',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 14:36:24','2019-10-09 12:56:11','2019-10-09 13:50:00','2019-10-09 12:50:00',NULL,0,NULL,'3','5'),('564654487543808','20190930145805','2019-09-30 14:58:05',1,'117830765439036','315471214063616',NULL,NULL,'117746606732912','1177466067329126401','316052347465728',NULL,NULL,NULL,NULL,NULL,NULL,'2019-09-30 14:57:50','2019-09-30 14:57:28','2019-09-02 15:59:11','2019-09-06 13:07:13',NULL,0,NULL,'3','1'),('588767666642944','20191003104732','2019-10-03 10:47:33',1,'313441019932672','911027091628032',NULL,NULL,'117746655708542','1177465813330464769','545547230388224',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-03 23:00:41','2019-10-03 12:01:22','2019-10-03 17:00:00','2019-10-03 12:00:00',NULL,0,NULL,'3','9'),('590562798108672','20191011173536','2019-10-11 17:35:36',1,'312952626786304','315197791580160',NULL,NULL,'117746581333046','1177463850350055425','760066919919616',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 20:47:56','2019-10-11 18:40:02','2019-10-11 20:00:00','2019-10-11 18:30:00',NULL,0,NULL,'3','3'),('591006870044672','20191011173722','2019-10-11 17:37:22',1,'314573435875328','315157572399104',NULL,NULL,'117746606732912','1177590990006902784','315632229199872',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-11 18:05:13','2019-10-11 17:42:58','2019-10-11 19:00:00','2019-10-11 17:37:16',NULL,0,NULL,'3','6'),('603551686467584','20191003114617','2019-10-03 11:46:17',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-03 12:17:15','2019-10-03 11:57:23','2019-10-03 14:00:00','2019-10-03 12:00:00',NULL,0,NULL,'3','6'),('632507688656896','20191006075459','2019-10-06 07:55:00',1,'117819533652860','315376330518528',NULL,NULL,'117746641125366','1177466067329126401','315962853601280',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 17:13:40','2019-10-06 15:36:07','2019-10-06 18:00:00','2019-10-06 15:00:00',NULL,0,NULL,'3','7'),('637021300826112','20191006081255','2019-10-06 08:12:56',1,'118063702159442','315414137974784',NULL,NULL,'117746606732912','1180637021305020416','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 12:00:00','2019-10-06 08:30:39',NULL,1,NULL,'1','6'),('637803316224000','20191006081602','2019-10-06 08:16:02',1,'118063702159442','315414137974784',NULL,NULL,'117746606732912','1180637021305020416','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 12:00:00','2019-10-06 08:30:49',NULL,1,NULL,'1','6'),('638414581506048','20191006081827','2019-10-06 08:18:28',1,'118063702159442','315414137974784',NULL,NULL,'117746606732912','1180637021305020416','315810487119872',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 17:10:36','2019-10-06 09:07:31','2019-10-06 12:00:00','2019-10-06 08:18:21',NULL,0,NULL,'3','6'),('642518129582080','20191003142107','2019-10-03 14:21:08',1,'117819533652860','315376330518528',NULL,NULL,'117746503369743','1177466557085421569','315921015418880',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-03 16:22:52','2019-10-03 15:14:02','2019-10-03 18:00:00','2019-10-03 14:40:00',NULL,0,NULL,'3','0'),('646415980175360','20191003143637','2019-10-03 14:36:37',1,'313110001266688','315197791580160',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-03 15:08:21','2019-10-03 14:53:44','2019-10-03 20:30:00','2019-10-03 18:30:00',NULL,1,NULL,'1','6'),('650165372952576','20191006090509','2019-10-06 09:05:10',1,'314003476099072','911027091628032',NULL,NULL,'117746628625082','1177466557085421569','911026890301440',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 19:35:51','2019-10-06 09:47:11','2019-10-06 12:30:00','2019-10-06 09:30:32',NULL,0,NULL,'3','6'),('652893372579840','20191011214317','2019-10-11 21:43:17',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 12:02:12','2019-10-12 08:23:53','2019-10-12 11:00:00','2019-10-12 08:30:00',NULL,0,NULL,'3','6'),('653298785615872','20191011214453','2019-10-11 21:44:54',1,'520918190092288','653298936610816',NULL,NULL,'117746641125366','1177466067329126401','653298794004480',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:00:00','2019-10-12 12:30:00',NULL,0,NULL,'3','7'),('653707906416640','20191011214631','2019-10-11 21:46:31',1,'118265370836359','653707931582464',NULL,NULL,'117746552298396','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 08:24:45','2019-10-12 07:54:37','2019-10-12 11:00:00','2019-10-12 09:00:00',NULL,0,NULL,'3','3'),('654009124552704','20191011214743','2019-10-11 21:47:43',1,'117819533652860','654009288130560',NULL,NULL,'117746593059062','1177464849051586561','654009124552705',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 12:55:05','2019-10-12 08:29:48','2019-10-12 12:00:00','2019-10-12 08:30:00',NULL,0,NULL,'3','8'),('654368962281472','20191011214908','2019-10-11 21:49:09',1,'520918190092288','653298936610816',NULL,NULL,'117746484905158','1177464351275782145','653298794004480',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:50:24','2019-10-12 14:00:47','2019-10-12 17:00:00','2019-10-12 14:00:00',NULL,0,NULL,'3','2'),('654920240627712','20191011215120','2019-10-11 21:51:21',1,'118265492123467','654920563589120',NULL,NULL,'117746628625082','1177518973337464832','654920253210624',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 16:44:00','2019-10-12 14:52:35','2019-10-12 17:00:00','2019-10-12 14:30:00',NULL,0,NULL,'3','6'),('656117865414656','20191011215605','2019-10-11 21:56:06',1,'520918190092288','653298936610816',NULL,NULL,'117746641125366','1177466067329126401','653298794004480',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:00:00','2019-10-12 12:30:00',NULL,1,NULL,'2','7'),('656579926720512','20191011215756','2019-10-11 21:57:56',1,'520918190092288','653298936610816',NULL,NULL,'117746641125366','1177466067329126401','654920253210624',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:00:00','2019-10-12 12:30:00',NULL,0,NULL,'3','7'),('657057305624576','20191011215949','2019-10-11 21:59:50',1,'520918190092288','653298936610816',NULL,NULL,'117746641125366','1177466067329126401','653298794004480',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:08:51','2019-10-12 12:17:47','2019-10-12 17:00:00','2019-10-12 12:30:00',NULL,0,NULL,'3','7'),('668259647397888','20190930214946','2019-09-30 21:49:47',1,'520918190092288','668259899056128',NULL,NULL,'117746552298396','1177518973337464832','668259651592192',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-01 05:49:00','2019-10-01 04:36:56','2019-10-01 07:00:00','2019-10-01 04:00:00',NULL,0,NULL,'3','3'),('684268801597440','20191006112040','2019-10-06 11:20:40',1,'314081058140160','911027091628032',NULL,NULL,'117746655708542','1177466067329126401','315693147271168',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 11:52:12','2019-10-06 16:00:00','2019-10-06 11:30:00',NULL,1,NULL,'2','9'),('690990060511232','20191006114722','2019-10-06 11:47:23',1,'313110001266688','315197791580160',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 12:11:27','2019-10-06 11:46:55','2019-10-06 14:00:00','2019-10-06 12:00:00',NULL,0,NULL,'3','6'),('716794419769344','20191009074333','2019-10-09 07:43:34',1,'520918190092288','315501245280256',NULL,NULL,'117746641125366','1177519146306367488','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 11:27:05','2019-10-09 08:00:59','2019-10-09 11:00:00','2019-10-09 09:00:00',NULL,0,NULL,'3','7'),('716855165874176','20191009074348','2019-10-09 07:43:48',1,'520918190092288','315501245280256',NULL,NULL,'117746641125366','1177466067329126401','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 11:27:05','2019-10-09 08:00:59','2019-10-09 11:00:00','2019-10-09 09:00:00',NULL,0,NULL,'3','7'),('737743917293568','20191003203931','2019-10-03 20:39:31',1,'314430661767168','515734378475520',NULL,NULL,'117746552298396','1177464351275782145','508817778192384',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-21 22:00:59','2019-10-03 20:37:36',NULL,1,NULL,'3','6'),('738761862291456','20191003204334','2019-10-03 20:43:34',1,'314430661767168','515734378475520',NULL,NULL,'117746552298396','1177464351275782145','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 00:41:37','2019-10-03 20:49:22','2019-10-03 22:54:26','2019-10-03 20:58:14',NULL,0,NULL,'3','3'),('747083746877440','20191006153016','2019-10-06 15:30:17',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 15:43:38','2019-10-06 15:29:53','2019-10-06 17:00:00','2019-10-06 15:30:08',NULL,0,NULL,'3','6'),('751062392774656','20191003213226','2019-10-03 21:32:27',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 09:23:43','2019-10-04 08:43:26','2019-10-04 10:00:00','2019-10-04 09:00:00',NULL,0,NULL,'3','6'),('754957888548864','20191009101512','2019-10-09 10:15:13',1,'118148803004672','315414137974784',NULL,NULL,'117746606732912','1177464351275782145','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 11:06:50','2019-10-09 10:20:09','2019-10-09 12:00:00','2019-10-09 10:15:05',NULL,0,NULL,'3','6'),('755560232546304','20191009101736','2019-10-09 10:17:36',1,'313027428003840','755560438067200',NULL,NULL,'117746397427915','1178195336167890944','755560240934912',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 12:34:53','2019-10-09 10:55:55','2019-10-09 12:00:00','2019-10-09 11:16:37',NULL,0,NULL,'3','3'),('760066915725312','20191009103530','2019-10-09 10:35:31',1,'312952626786304','760067125440512',NULL,NULL,'117746385035005','1177463850350055425','760066919919616',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 21:02:02','2019-10-09 15:16:44','2019-10-09 19:00:00','2019-10-09 16:00:00',NULL,0,NULL,'3','3'),('764148495425536','20191003222426','2019-10-03 22:24:27',1,'313441019932672','315315060125696',NULL,NULL,'117746606732912','1177466067329126401','508817778192384',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 08:43:06','2019-10-04 08:22:30','2019-10-04 10:30:00','2019-10-04 08:30:00',NULL,0,NULL,'3','6'),('775663382437888','20191003231012','2019-10-03 23:10:12',1,'117977566395286','775663541821440',NULL,NULL,'117746655708542','1179775663671844864','775663386632192',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 08:40:27','2019-10-04 06:22:47','2019-10-04 12:00:00','2019-10-04 06:30:00',NULL,0,NULL,'3','9'),('777585521094656','20191009114507','2019-10-09 11:45:07',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 12:10:27','2019-10-09 11:51:05','2019-10-09 13:00:00','2019-10-09 12:00:00',NULL,0,NULL,'3','6'),('789108139597824','20191006181716','2019-10-06 18:17:16',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-06 19:06:23','2019-10-06 18:16:51','2019-10-06 19:30:00','2019-10-06 18:20:00',NULL,0,NULL,'3','6'),('800853800022016','20191009131735','2019-10-09 13:17:35',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 14:25:45','2019-10-09 13:27:30','2019-10-09 16:00:00','2019-10-09 13:30:00',NULL,0,NULL,'3','6'),('809241363640320','20191009135054','2019-10-09 13:50:55',1,'118148803004672','564306081247232',NULL,NULL,'117746484905158','1179775663671844864','564305913475072',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 14:13:50','2019-10-09 13:49:59','2019-10-09 16:00:00','2019-10-09 13:50:37',NULL,0,NULL,'3','2'),('815691964645376','20191012083011','2019-10-12 08:30:11',1,'117830853770659','515734378475520',NULL,NULL,'117746552298396','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 09:46:37','2019-10-12 08:29:17','2019-10-12 10:00:00','2019-10-12 08:30:04',NULL,0,NULL,'3','3'),('816567713820672','20191009142001','2019-10-09 14:20:02',1,'118148803004672','564306081247232',NULL,NULL,'117746484905158','1179775663671844864','564305913475072',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 14:36:37','2019-10-09 14:18:50','2019-10-09 16:00:00','2019-10-09 14:19:41',NULL,0,NULL,'3','2'),('825685950889984','20191012090954','2019-10-12 09:09:54',1,'118282568645420','825686110273536',NULL,NULL,'117746666706007','1182825686202548224','825685950889985',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:35:35','2019-10-12 09:27:44','2019-10-12 12:00:00','2019-10-12 09:30:00',NULL,0,NULL,'3','10'),('831086871736320','20191009151743','2019-10-09 15:17:43',1,'313027428003840','760067125440512',NULL,NULL,'117746397427915','1178195336167890944','831086875930624',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 16:52:26','2019-10-09 16:08:16','2019-10-09 18:00:00','2019-10-09 15:30:00',NULL,0,NULL,'3','3'),('845887217180672','20191006220253','2019-10-06 22:02:53',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-07 09:27:35','2019-10-07 08:21:26','2019-10-07 10:00:00','2019-10-07 08:30:00',NULL,0,NULL,'3','6'),('846246824222720','20191006220419','2019-10-06 22:04:19',1,'313441019932672','315315060125696',NULL,NULL,'117746641125366','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-07 10:00:00','2019-10-07 08:30:00',NULL,1,NULL,'1','7'),('847765996937216','20191006221021','2019-10-06 22:10:21',1,'313441019932672','315315060125696',NULL,NULL,'117746606732912','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-07 08:26:26','2019-10-07 11:00:00','2019-10-07 08:30:00',NULL,1,NULL,'1','6'),('860390456852480','20191012112748','2019-10-12 11:27:48',1,'590990162092032','860390603653120',NULL,NULL,'117746460183092','1177590990006902784','860390461046784',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 15:25:28','2019-10-12 14:28:48','2019-10-12 14:15:00','2019-10-12 14:00:00',NULL,0,NULL,'3','5'),('869979386576896','20191012120554','2019-10-12 12:05:54',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 14:00:00','2019-10-12 12:30:00',NULL,1,NULL,'1','6'),('872825007931392','20191012121712','2019-10-12 12:17:13',1,'520918190092288','315231501201408',NULL,NULL,'117746655708542','1177466557085421569','872825012125696',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:06:03','2019-10-12 16:31:02','2019-10-12 15:00:00','2019-10-12 12:17:02',NULL,0,NULL,'3','9'),('874145701986304','20191012122227','2019-10-12 12:22:28',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 15:46:17','2019-10-12 15:20:24','2019-10-12 17:00:00','2019-10-12 15:30:00',NULL,0,NULL,'3','6'),('879955613609984','20191009183154','2019-10-09 18:31:54',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 18:59:47','2019-10-09 18:35:04','2019-10-09 20:00:00','2019-10-09 18:30:00',NULL,0,NULL,'3','6'),('884877612576768','20191009185127','2019-10-09 18:51:28',1,'118188487779712','315414137974784',NULL,NULL,'117746655708542','1177466557085421569','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-09 19:35:35','2019-10-09 18:58:27','2019-10-09 20:00:00','2019-10-09 18:51:18',NULL,0,NULL,'3','9'),('915578141712384','20191001141231','2019-10-01 14:12:32',1,'520918190092288','668259899056128',NULL,NULL,'117746484905158','1177464849051586561','915578145906688',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-01 14:56:52','2019-10-01 14:26:05','2019-10-01 16:00:00','2019-10-01 14:20:00',NULL,0,NULL,'3','2'),('927748877217792','20191009214149','2019-10-09 21:41:49',1,'117830853770659','515734378475520',NULL,NULL,'117746552298396','1177519146306367488','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 07:58:17','2019-10-10 10:00:00','2019-10-10 08:00:00',NULL,1,NULL,'1','3'),('928472214302720','20191009214441','2019-10-09 21:44:42',1,'118188487779712','315414137974784',NULL,NULL,'117746606732912','1181928472218497024','315780489457664',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 07:52:49','2019-10-10 12:00:00','2019-10-10 07:40:00',NULL,1,NULL,'1','6'),('928675449303040','20191009214530','2019-10-09 21:45:30',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 16:49:34','2019-10-10 15:26:25','2019-10-10 11:00:00','2019-10-10 08:30:00',NULL,0,NULL,'3','6'),('929109341663232','20191009214713','2019-10-09 21:47:14',1,'590990162092032','590989914628096',NULL,NULL,'117746666706007','1177590990006902784','929109341663233',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 15:00:00','2019-10-10 10:00:00',NULL,1,NULL,'1','10'),('929410824040448','20191009214825','2019-10-09 21:48:26',1,'118188487779712','929410991812608',NULL,NULL,'117746628625082','1181929411130224640','929410824040449',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 12:00:00','2019-10-10 09:00:00',NULL,1,NULL,'1','6'),('929744225071104','20191009214944','2019-10-09 21:49:45',1,'520918190092288','315231501201408',NULL,NULL,'117746641125366','1177465813330464769','929744229265408',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 07:48:03','2019-10-10 11:00:00','2019-10-10 07:40:00',NULL,1,NULL,'1','7'),('929941625794560','20191009215031','2019-10-09 21:50:32',1,'312952626786304','315197791580160',NULL,NULL,'117746385035005','1177463850350055425','545103598854144',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 05:57:20','2019-10-10 11:00:00','2019-10-10 06:30:00',NULL,1,NULL,'1','3'),('930203719462912','20191009215134','2019-10-09 21:51:34',1,'313675728990208','911027091628032',NULL,NULL,'117746372036438','1177463720364380161','911026890301440',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-10 06:24:17','2019-10-10 11:00:00','2019-10-10 07:00:00',NULL,1,NULL,'1','6'),('932148719431680','20191012161256','2019-10-12 16:12:57',1,'118188487779712','760067125440512',NULL,NULL,'117746606732912','1181928472218497024','932148736208896',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 17:20:54','2019-10-12 16:15:23','2019-10-12 18:00:00','2019-10-12 16:12:34',NULL,0,NULL,'3','6'),('949140998369280','20191012172028','2019-10-12 17:20:28',1,'105276513456128','654009288130560',NULL,NULL,'117746641125366','1177466067329126401','949141036118016',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 19:00:00','2019-10-12 17:20:11',NULL,0,NULL,'2','7'),('963967732985856','20191012181923','2019-10-12 18:19:23',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-12 18:44:31','2019-10-12 20:00:00','2019-10-12 19:00:02',NULL,0,NULL,'2','6'),('967318362398720','20191004115146','2019-10-04 11:51:46',1,'313110001266688','508818327646208',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-04 12:10:27','2019-10-04 11:51:04','2019-10-04 14:00:00','2019-10-04 12:00:00',NULL,0,NULL,'3','6'),('976322166169600','20191001181354','2019-10-01 18:13:54',1,'313110001266688','315197791580160',NULL,NULL,'117746416544294','1177464165442949121','470057556029441',NULL,NULL,NULL,NULL,NULL,NULL,'2019-10-01 18:46:27','2019-10-01 18:20:17','2019-10-01 19:30:00','2019-10-01 18:30:27',NULL,0,NULL,'3','6');
+
+/*Table structure for table `t_paiche_car_driver` */
+
 DROP TABLE IF EXISTS `t_paiche_car_driver`;
+
 CREATE TABLE `t_paiche_car_driver` (
-  `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '派车车辆表id',
-  `t_paiche_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '派车单id',
-  `t_car_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '车辆id',
-  `t_driver_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `id` varchar(255) NOT NULL COMMENT '派车车辆表id',
+  `t_paiche_id` varchar(255) DEFAULT NULL COMMENT '派车单id',
+  `t_car_id` varchar(255) DEFAULT NULL COMMENT '车辆id',
+  `t_driver_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_paiche_car_driver
--- ----------------------------
-BEGIN;
-INSERT INTO `t_paiche_car_driver` VALUES ('1', '1161229875537645568', '504456462802944', NULL);
-INSERT INTO `t_paiche_car_driver` VALUES ('10', '200635453284352', '354389423931392', '116145581747232');
-COMMIT;
+/*Data for the table `t_paiche_car_driver` */
 
--- ----------------------------
--- Table structure for t_paiche_driver
--- ----------------------------
+insert  into `t_paiche_car_driver`(`id`,`t_paiche_id`,`t_car_id`,`t_driver_id`) values ('1','1161229875537645568','504456462802944',NULL),('10','200635453284352','354389423931392','116145581747232');
+
+/*Table structure for table `t_paiche_driver` */
+
 DROP TABLE IF EXISTS `t_paiche_driver`;
+
 CREATE TABLE `t_paiche_driver` (
-  `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '派车驾驶员表id',
-  `t_paiche_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '派车单id',
-  `t_driver_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '驾驶员id',
+  `id` varchar(255) NOT NULL COMMENT '派车驾驶员表id',
+  `t_paiche_id` varchar(255) DEFAULT NULL COMMENT '派车单id',
+  `t_driver_id` varchar(255) DEFAULT NULL COMMENT '驾驶员id',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_paiche_driver
--- ----------------------------
-BEGIN;
-INSERT INTO `t_paiche_driver` VALUES ('1', '1161229875537645568', '506809953865728');
-COMMIT;
+/*Data for the table `t_paiche_driver` */
 
--- ----------------------------
--- Table structure for t_per
--- ----------------------------
+insert  into `t_paiche_driver`(`id`,`t_paiche_id`,`t_driver_id`) values ('1','1161229875537645568','506809953865728');
+
+/*Table structure for table `t_per` */
+
 DROP TABLE IF EXISTS `t_per`;
+
 CREATE TABLE `t_per` (
-  `t_per_id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '权限id',
+  `t_per_id` varchar(255) NOT NULL COMMENT '权限id',
   `t_per_num` int(2) NOT NULL,
-  `t_per_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `t_per_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`t_per_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_per
--- ----------------------------
-BEGIN;
-INSERT INTO `t_per` VALUES ('1', 0, '管理员');
-INSERT INTO `t_per` VALUES ('2', 1, '操作员');
-COMMIT;
+/*Data for the table `t_per` */
 
--- ----------------------------
--- Table structure for t_user
--- ----------------------------
+insert  into `t_per`(`t_per_id`,`t_per_num`,`t_per_name`) values ('1',0,'管理员'),('2',1,'操作员');
+
+/*Table structure for table `t_user` */
+
 DROP TABLE IF EXISTS `t_user`;
+
 CREATE TABLE `t_user` (
-  `id` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户表主键',
-  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
-  `account` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '账号',
-  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '密码',
+  `id` varchar(255) NOT NULL COMMENT '用户表主键',
+  `username` varchar(255) NOT NULL COMMENT '用户名',
+  `account` varchar(255) DEFAULT NULL COMMENT '账号',
+  `password` varchar(255) DEFAULT NULL COMMENT '密码',
   `t_data_status` int(2) DEFAULT NULL COMMENT '数据状态',
-  `t_remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '备注',
+  `t_remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `t_per` int(2) DEFAULT NULL COMMENT '权限id',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Records of t_user
--- ----------------------------
-BEGIN;
-INSERT INTO `t_user` VALUES ('1', '1', '1', 'e10adc3949ba59abbe56e057f20f883e', 0, '1', 1);
-INSERT INTO `t_user` VALUES ('1161842717475389440', '123', '操作员1', '202cb962ac59075b964b07152d234b70', 0, '操作员1', 2);
-INSERT INTO `t_user` VALUES ('1164551917059031040', 'zyz', '朱元璋', 'e10adc3949ba59abbe56e057f20f883e', 1, '朱重八', 2);
-INSERT INTO `t_user` VALUES ('169102634807296', 'user', '操作员', 'e10adc3949ba59abbe56e057f20f883e', 0, '操作员', 2);
-INSERT INTO `t_user` VALUES ('449602402295808', 'admin', '系统管理员', 'e10adc3949ba59abbe56e057f20f883e', 0, '系统管理员', 1);
-COMMIT;
+/*Data for the table `t_user` */
 
-SET FOREIGN_KEY_CHECKS = 1;
+insert  into `t_user`(`id`,`username`,`account`,`password`,`t_data_status`,`t_remark`,`t_per`) values ('1','1','1','e10adc3949ba59abbe56e057f20f883e',0,'1',1),('1161842717475389440','123','操作员1','202cb962ac59075b964b07152d234b70',0,'操作员1',2),('1164551917059031040','zyz','朱元璋','e10adc3949ba59abbe56e057f20f883e',1,'朱重八',2),('169102634807296','user','操作员','e10adc3949ba59abbe56e057f20f883e',0,'操作员',2),('449602402295808','admin','系统管理员','e10adc3949ba59abbe56e057f20f883e',0,'系统管理员',1);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
